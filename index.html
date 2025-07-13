@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourRoute - Поиск и бронирование ж/д билетов</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <div class="header-top">
+            <div class="logo">
+                <i class="fas fa-train"></i>
+                Your<span>Route</span>
+            </div>
+            <div class="user-actions">
+                <a href="#"><i class="fas fa-user"></i> Войти</a>
+                <a href="#"><i class="fas fa-heart"></i> Избранное</a>
+                <a href="#"><i class="fas fa-question-circle"></i> Помощь</a>
+            </div>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Билеты</a></li>
+                <li><a href="#">Расписание</a></li>
+                <li><a href="#">Тарифы</a></li>
+                <li><a href="#">Спецпредложения</a></li>
+                <li><a href="#">Информация</a></li>
+                <li><a href="#">Бизнес-путешествия</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Основное содержимое -->
+    <div class="container">
+        <div class="hero">
+            <h1>Найдите идеальный поезд для вашего путешествия</h1>
+            <p>Быстрый поиск, удобное бронирование и электронные билеты. Ваше комфортное путешествие начинается здесь!</p>
+        </div>
+        
+        <!-- Форма поиска -->
+        <div class="search-card">
+            <div class="search-header">
+                <div class="search-type">
+                    <button class="search-type-btn active">Ж/Д билеты</button>
+                    <button class="search-type-btn">Электрички</button>
+                    <button class="search-type-btn">Международные</button>
+                </div>
+            </div>
+            
+            <form id="searchForm">
+                <div class="search-form">
+                    <div class="form-group">
+                        <label for="from">Откуда</label>
+                        <input type="text" id="from" class="form-control" placeholder="Москва" value="Москва">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="to">Куда</label>
+                        <input type="text" id="to" class="form-control" placeholder="Санкт-Петербург" value="Санкт-Петербург">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="departure">Туда</label>
+                        <input type="date" id="departure" class="form-control" value="2023-09-15">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="return">Обратно</label>
+                        <input type="date" id="return" class="form-control" value="2023-09-20">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Пассажиры</label>
+                        <div class="passenger-selector">
+                            <button type="button" class="passenger-btn" id="decrement">-</button>
+                            <div class="passenger-count" id="passengerCount">1</div>
+                            <button type="button" class="passenger-btn" id="increment">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="trainType">Тип поезда</label>
+                        <select id="trainType" class="form-control">
+                            <option value="any">Любой</option>
+                            <option value="highspeed">Скоростной</option>
+                            <option value="firm">Фирменный</option>
+                            <option value="common">Обычный</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="classType">Класс</label>
+                        <select id="classType" class="form-control">
+                            <option value="any">Любой</option>
+                            <option value="first">Первый</option>
+                            <option value="second" selected>Второй</option>
+                            <option value="third">Третий</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-search"></i> Найти билеты
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Результаты поиска -->
+        <div class="results-header">
+            <h2 class="section-title">Найдено 8 поездов</h2>
+            <div class="sort-options">
+                <label for="sort">Сортировать:</label>
+                <select id="sort" class="sort-select">
+                    <option value="price_asc">По цене (сначала дешевле)</option>
+                    <option value="price_desc">По цене (сначала дороже)</option>
+                    <option value="time_asc">По времени (быстрее)</option>
+                    <option value="departure">По времени отправления</option>
+                </select>
+            </div>
+        </div>
+        
+        <div id="resultsContainer">
+            <!-- Результаты будут загружены здесь -->
+        </div>
+        
+        <!-- Популярные направления -->
+        <div class="popular-routes">
+            <h2 class="section-title">Популярные направления</h2>
+            <div class="routes-grid">
+                <div class="route-card">
+                    <h3>Москва → Санкт-Петербург</h3>
+                    <div class="route-time">В пути: 3 ч 45 мин</div>
+                    <div class="route-price">от 1 500 ₽</div>
+                    <button class="btn-buy">Выбрать</button>
+                </div>
+                
+                <div class="route-card">
+                    <h3>Москва → Нижний Новгород</h3>
+                    <div class="route-time">В пути: 3 ч 30 мин</div>
+                    <div class="route-price">от 1 200 ₽</div>
+                    <button class="btn-buy">Выбрать</button>
+                </div>
+                
+                <div class="route-card">
+                    <h3>Москва → Казань</h3>
+                    <div class="route-time">В пути: 10 ч 15 мин</div>
+                    <div class="route-price">от 2 300 ₽</div>
+                    <button class="btn-buy">Выбрать</button>
+                </div>
+                
+                <div class="route-card">
+                    <h3>Санкт-Петербург → Сочи</h3>
+                    <div class="route-time">В пути: 1 д 12 ч</div>
+                    <div class="route-price">от 4 700 ₽</div>
+                    <button class="btn-buy">Выбрать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Подвал сайта -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>YourRoute</h3>
+                <ul>
+                    <li><a href="#">О компании</a></li>
+                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#">Партнёрам</a></li>
+                    <li><a href="#">Вакансии</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Информация</h3>
+                <ul>
+                    <li><a href="#">Правила перевозки</a></li>
+                    <li><a href="#">Возврат билетов</a></li>
+                    <li><a href="#">Тарифы и условия</a></li>
+                    <li><a href="#">Частые вопросы</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Сервисы</h3>
+                <ul>
+                    <li><a href="#">Бизнес-путешествия</a></li>
+                    <li><a href="#">Туристические пакеты</a></li>
+                    <li><a href="#">ЖД-туры по России</a></li>
+                    <li><a href="#">Подарочные сертификаты</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Свяжитесь с нами</h3>
+                <ul>
+                    <li><i class="fas fa-phone"></i> 8 (111) 111-11-11</li>
+                    <li><i class="fas fa-envelope"></i> info@yourroutePraktika.ru</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Москва, ул. Широкая, 99</li>
+                </ul>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-odnoklassniki"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 YourRoute - Сервис поиска и бронирования железнодорожных билетов. Все права защищены.</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>

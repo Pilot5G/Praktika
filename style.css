@@ -1,0 +1,574 @@
+/* style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --primary: #005bbb;
+    --secondary: #ffd500;
+    --dark: #0a2e5c;
+    --light: #f5f8ff;
+    --gray: #e0e6f0;
+    --success: #28a745;
+    --danger: #dc3545;
+    --warning: #ffc107;
+}
+
+body {
+    background-color: #f0f4fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Шапка сайта */
+header {
+    background: linear-gradient(135deg, var(--dark), var(--primary));
+    color: white;
+    padding: 15px 5%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.logo i {
+    color: var(--secondary);
+    margin-right: 10px;
+}
+
+.logo span {
+    color: var(--secondary);
+}
+
+.user-actions a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.user-actions a:hover {
+    color: var(--secondary);
+}
+
+.user-actions i {
+    margin-right: 5px;
+}
+
+nav {
+    padding-top: 15px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-right: 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    transition: all 0.3s;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Основное содержимое */
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    color: var(--dark);
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Форма поиска */
+.search-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+.search-header {
+    display: flex;
+    margin-bottom: 25px;
+    border-bottom: 1px solid var(--gray);
+    padding-bottom: 15px;
+}
+
+.search-type {
+    display: flex;
+}
+
+.search-type-btn {
+    padding: 10px 20px;
+    background: var(--light);
+    border: none;
+    border-radius: 6px;
+    margin-right: 10px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.search-type-btn.active {
+    background: var(--primary);
+    color: white;
+}
+
+.search-form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #444;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 91, 187, 0.1);
+}
+
+.passenger-selector {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.passenger-btn {
+    background: var(--light);
+    border: none;
+    width: 40px;
+    height: 100%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.passenger-btn:hover {
+    background: #e0e0e0;
+}
+
+.passenger-count {
+    flex: 1;
+    text-align: center;
+    padding: 0 10px;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: span 4;
+}
+
+.btn-primary:hover {
+    background: var(--dark);
+}
+
+.btn-primary i {
+    margin-right: 10px;
+}
+
+/* Результаты поиска */
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.sort-options {
+    display: flex;
+    align-items: center;
+}
+
+.sort-options label {
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.sort-select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: white;
+}
+
+.ticket-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    margin-bottom: 20px;
+    display: flex;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-left: 4px solid var(--primary);
+}
+
+.ticket-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ticket-route {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.route-station {
+    flex: 1;
+    text-align: center;
+}
+
+.route-station h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.route-station p {
+    color: #777;
+    font-size: 14px;
+}
+
+.route-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 15px;
+}
+
+.route-divider i {
+    color: var(--primary);
+    font-size: 24px;
+    margin: 5px 0;
+}
+
+.route-duration {
+    color: #777;
+    font-size: 14px;
+    text-align: center;
+}
+
+.ticket-details {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+    border-top: 1px dashed #ddd;
+}
+
+.train-info {
+    display: flex;
+    align-items: center;
+}
+
+.train-info i {
+    color: var(--primary);
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.ticket-price {
+    text-align: right;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.btn-buy {
+    background: var(--secondary);
+    color: var(--dark);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-buy:hover {
+    background: #e6c000;
+}
+
+/* Популярные направления */
+.popular-routes {
+    margin: 50px 0;
+}
+
+.section-title {
+    font-size: 24px;
+    color: var(--dark);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--secondary);
+    display: inline-block;
+}
+
+.routes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.route-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+    transition: all 0.3s;
+    border-top: 3px solid var(--primary);
+}
+
+.route-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.route-card h3 {
+    margin-bottom: 15px;
+    color: var(--dark);
+}
+
+.route-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 10px 0;
+}
+
+.route-time {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Подвал сайта */
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 50px 5% 30px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: var(--secondary);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--secondary);
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: white;
+}
+
+.social-links {
+    display: flex;
+    margin-top: 15px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    margin-right: 10px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.social-links a:hover {
+    background: var(--primary);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #aaa;
+    font-size: 14px;
+}
+
+/* Адаптивность */
+@media (max-width: 900px) {
+    .search-form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .btn-primary {
+        grid-column: span 2;
+    }
+    
+    .ticket-card {
+        flex-direction: column;
+    }
+    
+    .ticket-details {
+        flex-direction: column;
+        margin-top: 15px;
+    }
+    
+    .ticket-price {
+        text-align: left;
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .user-actions {
+        margin-top: 15px;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+    }
+    
+    nav ul li {
+        margin-bottom: 10px;
+    }
+    
+    .search-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .btn-primary {
+        grid-column: span 1;
+    }
+    
+    .results-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .sort-options {
+        margin-top: 15px;
+    }
+}
